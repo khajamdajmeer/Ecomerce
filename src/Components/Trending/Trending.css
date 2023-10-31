@@ -1,0 +1,42 @@
+
+.Trending-div{
+    max-width: 1200px;
+    width: 100vw;
+    margin: 4px 0;
+    /* background-color: #f6fff8; */
+    padding: 10px 0;
+position: relative;
+}
+.Trending-div h1{
+    padding: 4px 0;
+}
+.Trending-flex{
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+}
+.Trending-flex::-webkit-scrollbar{
+    display: none;
+}
+.Trending-scrollbtn{
+    position: absolute;
+    top: 50%;
+    transform: translate(-50% -50%);
+    background: none;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background-color: rgba(120, 119, 119, 0.507);
+    transition: all 0.4s ease;
+    display: flex;
+    
+}
+.Trending-scrollbtn:hover{
+    background-color: black;
+}
+.Trending-scrollbtn span{
+    font-size: 42px;
+}
+.btnright{
+    right: 0;
+}

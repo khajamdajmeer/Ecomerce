@@ -1,0 +1,41 @@
+.Catogry-Heading{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+    position: relative;
+    font-size: 24px;
+}
+.backhomebtn{
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    left: 50px;
+    padding: 20px 0 0 20px;
+    background:none;
+    border: none;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 24px;
+    color:#01539d ;
+}
+.backhomebtn span{
+    color:#01539d ;
+    font-weight: bold;
+    font-size: 36px;
+ padding-right: 5px;
+}
+.Products{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.Products-container{
+    display: flex;
+    flex-flow: wrap;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 1200px;
+}

@@ -1,0 +1,51 @@
+.Card-div{
+    width: 240px;
+    background-color: white;
+    height: 300px;
+    display: flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    border: 2px solid rgb(186, 185, 185);
+    margin: 5px;
+    transition: all 0.4s ease;
+    text-decoration: none;
+    color: black;
+}
+.Card-div:hover {
+    position: relative;
+    border: 2px solid black;
+}
+.Card-imgdiv{
+    height: 80%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.Card-imgdiv img{
+    max-height: 80%;
+    max-width: 100%;
+}
+.Card-pricing{
+    
+    height: 20%;
+    padding: 0 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-overflow: ellipsis;
+overflow-x: hidden;
+white-space: nowrap;
+text-align: left;
+}
+.Card-pricing h3, .Card-pricing h3{
+text-overflow: ellipsis;
+overflow-x: hidden;
+white-space: nowrap;
+text-align: left;
+
+}
+.Card-pricing h4{
+    font-family: 'Playpen Sans', cursive;
+    /* text-align: right; */
+}
