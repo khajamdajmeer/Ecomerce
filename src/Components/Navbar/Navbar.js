@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Navbar.css'
-import { Link } from 'react-router-dom';
+import { Link, useActionData } from 'react-router-dom';
 import logo from '../../Resources/Images/logo.png'
+import CartItemsCard from '../CartItemsCard/CartItemsCard';
 const Navbar = () => {
     const handlehambtn = ()=>{
         const menu = document.getElementById('mymenu')
@@ -23,6 +24,13 @@ const Navbar = () => {
             cart.style.display='block'
         }
     }
+
+    const [cartCoutn,setCartCount]=useState(JSON.parse(localStorage.getItem('cart')) || []);
+    
+    useEffect(()=>{
+      setCartCount(JSON.parse(localStorage.getItem('cart')) || [])
+    },localStorage.getItem('cart'))
+
   return (
     <>
       <nav>
@@ -40,7 +48,7 @@ const Navbar = () => {
       <span class="material-symbols-outlined">
 shopping_cart
 </span>
-<div className="Nav-count">1</div>
+<div className="Nav-count">{cartCoutn.length}</div>
       </div>
       <button className='hambutton' onClick={handlehambtn}><span class="material-symbols-outlined">menu</span></button>
         </div>
@@ -56,6 +64,16 @@ close
 </span>
 </button>
     </div>
+
+
+    <div className="Cart-item-list">
+      {cartCoutn.map((ele,index)=>{
+        return(
+          <CartItemsCard id={ele.id} quantity={ele.quantity}/>
+        )
+      })}
+    </div>
+    <div className="Cart-value">this is value</div>
     </div>
   </div>
   </nav>

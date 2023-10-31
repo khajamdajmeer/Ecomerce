@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Trending from '../Components/Trending/Trending';
 import './Home.css';
 import homeimg from '../Resources/Images/ecommain.jpg';
 import BestSeller from '../Components/BestSeller/BestSeller';
 import bannerimg from '../Resources/Images/Catogries/fashionCard1.jpg'
 const Home = () => {
+
+
+  useEffect(()=>{
+      localStorage.setItem('Cart',[])
+  },[])
   return (
     <>
     <div className="Home-div">

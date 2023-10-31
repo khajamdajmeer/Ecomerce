@@ -21,11 +21,26 @@ setQuantity(1)
   const handleQuantityCount = (type)=>{
     if(type==='+'){
       setQuantity(quantity+1);
-    }
-    else{
+    }else{
       setQuantity(quantity-1);
     }
   }
+
+
+  const AddtoCart = (id,price)=>{
+    const Cart=JSON.parse(localStorage.getItem('cart')) || [];
+    if(Cart){
+      const existingitem = Cart.find((item)=>item.id===id)
+      if(!existingitem){
+        localStorage.setItem('cart',JSON.stringify([...Cart,{id:id,price:price,quantity:quantity}]));
+      }
+    }else{
+      localStorage.setItem('cart',JSON.stringify([...Cart,{id:id,price:price,quantity:quantity}]));
+    }
+
+  }
+
+
 
   return (
     <>
@@ -36,7 +51,7 @@ setQuantity(1)
 
           <div className="item-flex-img">
             <div className="multi-img">
-              <button className='mulit-imgbtn' onClick={()=>handleDisplayImgChange(myitem.Image)}><img src={myitem.Image} alt="" /></button>
+              <button className='mulit-imgbtn'  onClick={()=>handleDisplayImgChange(myitem.Image)}><img src={myitem.Image} alt="" /></button>
               <button className='mulit-imgbtn' onClick={()=>handleDisplayImgChange(myitem.OtherImages[0])}><img src={myitem.OtherImages[0]} alt="" /></button>
               <button className='mulit-imgbtn' onClick={()=>handleDisplayImgChange(myitem.OtherImages[1])}><img src={myitem.OtherImages[1]} alt="" /></button>
             </div>
@@ -57,7 +72,7 @@ setQuantity(1)
             <h2>&#8377; {myitem.Price}</h2>
           </div>
           <div className="ActionBtns">
-            <button className='addcartbtn'>Add to Cart</button>
+            <button className='addcartbtn' onClick={()=>{AddtoCart(myitem.id,myitem.Price)}}>Add to Cart</button>
             <button className='buynowbtn'>Buy Now</button>
           </div>
           </div>

@@ -1,0 +1,72 @@
+.CartItem-card{
+    width: unset;
+    display: flex;
+    align-items: center;
+    height:80px;
+    background-color: white;
+    border-bottom: 1px solid #e5e5e5;
+}
+.Cart-img{
+    height: 100%;
+    width: 35%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.Cart-img img{
+    max-height: 100%;
+    max-width: 100%;
+}
+.Cart-item-list{
+    height: 110%;
+    overflow: auto;
+}
+.CartInfo{
+    height: 100%;
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.CartInfo h3{
+    margin: 5px 0;
+    text-overflow: ellipsis;
+    white-space:nowrap;
+    text-wrap: hidden;
+}
+.changeQuantity{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.quantitybtns{
+    display: flex;
+    outline: 1px solid black;
+    margin: 4px 0;
+}
+.quantitybtns button{
+    background:none;
+    border: none;
+    padding:  0 5px;
+    outline: 1px solid black;
+    font-weight: bold;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+}
+.quantitybtns h4{
+    padding: 0 5px;
+
+}
+.plusbutton{
+    background-color: brown !important;
+    color: white;
+}
+.delete{
+    display: flex;
+    background: none;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    color: #656565;
+}

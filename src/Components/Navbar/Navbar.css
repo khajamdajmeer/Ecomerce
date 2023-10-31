@@ -131,15 +131,17 @@ body {
     overflow: hidden;
   }
   .cart-item{
-    
     width: 300px;
     height: 100vh;
     position: absolute;
     top: 0;
     right: 0;
-    background-color: var(--lightpink);
+    background-color: white;
     animation: openCart 0.5s ease-in-out;
     overflow: hidden;
+  }
+  .cart-item h2{
+    color: black;
   }
   .head{
     display: flex;
@@ -147,7 +149,8 @@ body {
     /* align-items: center; */
     padding: 10px;
     height: 25px;
-    background-color: var(--lightpink);
+    background-color: white;
+
     color: var(--primary);
     border-bottom: 1px solid grey;
   }
@@ -171,6 +174,15 @@ font-size: 32px;
         border-radius: 0;
     }
   }
+.Cart-value{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  background-color: orange;
+}
+
+
   @media (max-width: 768px) {
    
     .menu {
