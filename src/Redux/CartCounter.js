@@ -2,17 +2,19 @@ import { createSlice } from "@reduxjs/toolkit";
 
 
 const cartsize = JSON.parse(localStorage.getItem('cart'))||[];
-let mycart = null;
-if(cartsize){
-    mycart=cartsize.length;
-}else{
-    mycart=0
+
+const changecart =()=>{
+    if(cartsize){
+        return cartsize.length;
+    }else{
+        return 0
+    }
 }
 
 export const AddtoCart = createSlice({
     name:'cart',
     initialState:{
-       value: mycart,
+       value: changecart(),
     },
     reducers:{
         Add:(state)=>{
