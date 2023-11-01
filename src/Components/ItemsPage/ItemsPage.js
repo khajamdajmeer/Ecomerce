@@ -2,10 +2,13 @@ import React, { useEffect, useState } from 'react';
 import myitems from '../ItemsData';
 import './ItemsPage.css'
 import { useParams } from 'react-router';
+import {Add} from '../../Redux/CartCounter';
 import Trending from '../Trending/Trending';
+import { useDispatch } from 'react-redux';
 const ItemsPage = () => {
+
+  const dispatch = useDispatch();
   const { id }=useParams();
-  console.log(id)
   const filteritem = myitems.filter((ele)=>ele.id===parseInt(id));
   const myitem= filteritem[0]
   const [displayimg,setDisplayimg] = useState(myitem.Image);
@@ -33,6 +36,7 @@ setQuantity(1)
       const existingitem = Cart.find((item)=>item.id===id)
       if(!existingitem){
         localStorage.setItem('cart',JSON.stringify([...Cart,{id:id,price:price,quantity:quantity}]));
+        dispatch(Add())
       }
     }else{
       localStorage.setItem('cart',JSON.stringify([...Cart,{id:id,price:price,quantity:quantity}]));

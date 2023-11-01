@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
 import './CartitemsCard.css';
-import ItemData from '../../Components/ItemsData'
+import ItemData from '../../Components/ItemsData';
+import {  useDispatch } from 'react-redux';
+import {remove} from '../../Redux/CartCounter';
+
 const CartItemsCard = (props) => {
+
+    const dispatch = useDispatch();
     const itemid = props.id;
     const [quantity,setQuantity] = useState(props.quantity);
     const filterdata = ItemData.filter((ele)=>{return(ele.id===itemid)})
@@ -18,9 +23,11 @@ const CartItemsCard = (props) => {
 
     const handleRemove=(id)=>{
             const Cart = JSON.parse(localStorage.getItem('cart')) || [];
-        const removedCart = Cart.findIndex((item)=>item.id===id);
+        const removedCart = Cart.findIndex((item)=>item.id===itemid);
         if(removedCart!==-1){
             Cart.splice(removedCart,1);
+            localStorage.setItem('cart', JSON.stringify(Cart));
+            dispatch(remove())
         }
     }
   return (
@@ -31,7 +38,7 @@ const CartItemsCard = (props) => {
             <h3>{filterdata[0].Name}</h3>
             <div className="changeQuantity">
             <h5>Quantity : {quantity}</h5>
-            <h2>{filterdata[0].Price *quantity}</h2>
+            <h2>&#8377; {filterdata[0].Price *quantity}</h2>
 </div>
             <div className="changeQuantity">
                 <div className="quantitybtns">
@@ -39,7 +46,7 @@ const CartItemsCard = (props) => {
                 <h4>{quantity}</h4>
                 <button className='plusbutton' onClick={handleplus}>+</button></div>
             <button className="delete" >
-            <span class="material-symbols-outlined">delete</span>
+            <span class="material-symbols-outlined" onClick={handleRemove}>delete</span>
             </button>
             </div>
         </div>
